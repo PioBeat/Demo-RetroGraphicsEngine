@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="net.offbeatpioneer.demoapp"
+    android:installLocation="preferExternal">
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        tools:overrideLibrary="net.offbeatpioneer.android.components" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <!-- <android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!-- <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:node="replace">
+        <activity android:name="net.offbeatpioneer.demoapp.retrographicsengine.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".retrographicsengine.examples.splashscreenCombined.SplashScreenExample" />
+        <activity
+            android:name="net.offbeatpioneer.demoapp.retrographicsengine.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"
+            android:theme="@style/FullscreenTheme" />
+
+
+        <activity android:name=".retrographicsengine.examples.helloWorld.HelloWorldActivity">
+
+        </activity>
+    </application>
+
+</manifest>

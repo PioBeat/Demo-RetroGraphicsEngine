@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="@color/card_colour_first"
+    android:padding="24dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    android:orientation="vertical">
+
+    <net.offbeatpioneer.android.components.OffbeatTextView
+        android:id="@+id/textViewDescription"
+        style="@style/textViewStyle"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="A Hello-World-Example" />
+
+    <!--<View-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="24dp"/>-->
+
+    <net.offbeatpioneer.android.components.OffbeatButton
+        android:id="@+id/btnExample"
+        android:text="See example"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="0dp"
+    android:background="@color/card_colour_first"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:weightSum="1.0">
+
+    <net.offbeatpioneer.android.components.OffbeatTextView
+        android:id="@+id/textViewDescription"
+        style="@style/textViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.7"
+        android:gravity="center"
+        android:text="" />
+
+    <net.offbeatpioneer.android.components.OffbeatTextView
+        android:id="@+id/textViewDescription2"
+        style="@style/textViewStyle"
+        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_weight="0.3"
+        android:gravity="right"
+        android:text="Click on an item in the list to see the example" />
+
+
+</LinearLayout>

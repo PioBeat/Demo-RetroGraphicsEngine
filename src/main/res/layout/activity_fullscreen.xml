@@ -1,0 +1,30 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#0099cc"
+    tools:context="net.offbeatpioneer.demoapp.retrographicsengine.FullscreenActivity">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <net.offbeatpioneer.retroengine.view.DrawView
+        android:id="@+id/graphics"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:screenOrientation="landscape"
+        android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+    <TextView
+        android:id="@+id/textViewColl"
+        android:text=""
+        android:textColor="#efefef"
+        android:layout_width="wrap_content"
+        android:layout_gravity="top|right"
+        android:visibility="invisible"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="24sp"
+        android:layout_height="wrap_content" />
+
+</FrameLayout>
