@@ -21,6 +21,6 @@ public class HelloWorldActivity extends Activity {
 
         HelloState state = new HelloState();
         renderThread.addState(state);
-        renderThread.initState();
+        renderThread.setCurrentState(HelloState.class);
     }
 }
