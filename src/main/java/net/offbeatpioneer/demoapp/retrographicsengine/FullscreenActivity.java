@@ -10,14 +10,14 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideS
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.BasicSpriteExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
-import net.offbeatpioneer.retroengine.view.GameThread;
+import net.offbeatpioneer.retroengine.view.RenderThread;
 import net.offbeatpioneer.retroengine.view.TouchListener;
 
 
 public class FullscreenActivity extends AppCompatActivity {
 
 
-    public static GameThread gameThread;
+    public static RenderThread renderThread;
     public static TouchListener touchListener;
     private DrawView drawView;
 
@@ -30,10 +30,10 @@ public class FullscreenActivity extends AppCompatActivity {
         RetroEngine.init(this);
         ResManager.initImages(getResources());
         drawView = (DrawView) findViewById(R.id.graphics);
-        gameThread = new GameThread(drawView);
-        gameThread.addStates(new BasicSpriteExample(), new SideScrollerState(), new ParallaxBackgroundState());
-//        gameThread.initStates();
-//        drawView.setGameThread(gameThread);
+        renderThread = new RenderThread(drawView);
+        renderThread.addStates(new BasicSpriteExample(), new SideScrollerState(), new ParallaxBackgroundState());
+//        renderThread.initStates();
+//        drawView.setRenderThread(renderThread);
 
         Bundle b = getIntent().getExtras();
         if (b != null) {
@@ -41,11 +41,11 @@ public class FullscreenActivity extends AppCompatActivity {
             Class<?> tmp = (Class<?>) b.get("currentState");
             if (tmp != null) {
                 Log.v("MainActivity", "Load transfered State: " + tmp.getClass());
-                gameThread.setCurrentState(tmp);
+                renderThread.setCurrentState(tmp);
 //                drawView.setCurrentState(tmp);
             }
         } else {
-            gameThread.setCurrentState(BasicSpriteExample.class);
+            renderThread.setCurrentState(BasicSpriteExample.class);
         }
 
     }
@@ -54,10 +54,10 @@ public class FullscreenActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         // starte gamethread wieder
-        if (gameThread != null) {
+        if (renderThread != null) {
 //            Log.v("MainActivity", "starte gamethread wieder...");
             RetroEngine.shouldWait = false;
-//            drawView.setGameThread(gameThread);
+//            drawView.setRenderThread(renderThread);
         }
     }
 
@@ -66,7 +66,7 @@ public class FullscreenActivity extends AppCompatActivity {
         super.onPause();
 
         // halte gamethread an
-        if (gameThread != null) {
+        if (renderThread != null) {
             Log.v("MainActivity", "Halte gamethread an...");
             RetroEngine.isRunning = true;
         }

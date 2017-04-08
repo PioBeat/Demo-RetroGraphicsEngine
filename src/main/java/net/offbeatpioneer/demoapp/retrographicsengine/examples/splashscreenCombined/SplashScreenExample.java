@@ -10,11 +10,11 @@ import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.demoapp.retrographicsengine.ResManager;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
-import net.offbeatpioneer.retroengine.view.GameThread;
+import net.offbeatpioneer.retroengine.view.RenderThread;
 
 public class SplashScreenExample extends AppCompatActivity {
 
-    GameThread gameThread;
+    RenderThread renderThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +24,9 @@ public class SplashScreenExample extends AppCompatActivity {
         ResManager.initImages(getResources());
 
         DrawView drawView = (DrawView) findViewById(R.id.graphics);
-        gameThread = new GameThread(drawView);
-        gameThread.addStates(new SplashScreenAnimationState());
-        gameThread.setCurrentState(SplashScreenAnimationState.class);
+        renderThread = new RenderThread(drawView);
+        renderThread.addStates(new SplashScreenAnimationState());
+        renderThread.setCurrentState(SplashScreenAnimationState.class);
 
         Animation scaleAlpha = AnimationUtils.loadAnimation(this, R.anim.scalealpha);
         ImageView circle1 = (ImageView) findViewById(R.id.image_circle_1);
@@ -38,7 +38,7 @@ public class SplashScreenExample extends AppCompatActivity {
         super.onDestroy();
 //        RetroEngine.isRunning = false;
 //        try {
-//            gameThread.join();
+//            renderThread.join();
 //        } catch (InterruptedException e) {
 //            e.printStackTrace();
 //        }
@@ -48,7 +48,7 @@ public class SplashScreenExample extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (gameThread != null) {
+        if (renderThread != null) {
             RetroEngine.shouldWait = false;
         }
     }
@@ -57,7 +57,7 @@ public class SplashScreenExample extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
 
-        if (gameThread != null) {
+        if (renderThread != null) {
             RetroEngine.isRunning = true;
         }
     }

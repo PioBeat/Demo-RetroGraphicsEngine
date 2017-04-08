@@ -6,7 +6,7 @@ import android.os.Bundle;
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
-import net.offbeatpioneer.retroengine.view.GameThread;
+import net.offbeatpioneer.retroengine.view.RenderThread;
 
 public class HelloWorldActivity extends Activity {
 
@@ -17,10 +17,10 @@ public class HelloWorldActivity extends Activity {
 
         RetroEngine.init(this);
         DrawView drawView = (DrawView) findViewById(R.id.graphics);
-        GameThread gameThread = new GameThread(drawView);
+        RenderThread renderThread = new RenderThread(drawView);
 
         HelloState state = new HelloState();
-        gameThread.addState(state);
-        gameThread.initState();
+        renderThread.addState(state);
+        renderThread.initState();
     }
 }
