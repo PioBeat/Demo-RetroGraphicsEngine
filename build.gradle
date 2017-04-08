@@ -32,8 +32,8 @@ dependencies {
     //own dependencies
 //    compile project(':offbeat-components')
     compile 'net.offbeat-pioneer.android:offbeat-commons:0.3'
-//    compile 'net.offbeat-pioneer.android:retroengine:0.9'
-    compile project(':retroengine')
+    compile 'net.offbeat-pioneer.android:retroengine:0.9.1'
+//    compile project(':retroengine')
 
     //3rd party
     compile 'com.github.flavienlaurent.discrollview:library:0.0.2@aar'
