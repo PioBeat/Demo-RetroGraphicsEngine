@@ -116,7 +116,7 @@ public class BasicSpriteExample extends State {
         debri.setViewportOrigin(p);
         debri.setPosition(new PointF(100, 100));
 
-        RotationAnimation rot = new RotationAnimation(360, 4000);
+        RotationAnimation rot = new RotationAnimation(0, 360, 4000);
         rot.setLoop(true);
         ScaleAnimation scaleAnimation = new ScaleAnimation(0.1f, 2.5f, 4000);
         scaleAnimation.setLoop(true);
