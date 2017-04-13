@@ -14,12 +14,14 @@ import net.offbeatpioneer.retroengine.core.animation.AlphaValueTransition;
 import net.offbeatpioneer.retroengine.core.animation.AnimationSuite;
 import net.offbeatpioneer.retroengine.core.animation.IAnimationSuiteListener;
 import net.offbeatpioneer.retroengine.core.animation.RelativeLinearTranslation;
-import net.offbeatpioneer.retroengine.core.animation.RotationAnimation;
 import net.offbeatpioneer.retroengine.core.animation.ScaleAnimation;
+import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
 import net.offbeatpioneer.retroengine.core.sprites.simple.CircleSprite;
-import net.offbeatpioneer.retroengine.core.sprites.simple.TriangleSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
 import net.offbeatpioneer.retroengine.core.util.MathUtils;
+
+import java.util.List;
 
 /**
  * Example shows the creation of circles. In addition animations are applied
@@ -51,7 +53,7 @@ public class RandomCirclesState extends State {
 
         void addAnimation(final CircleSprite circleSprite) {
             int duration = MathUtils.getRandomBetween(1000, 5000);
-            ScaleAnimation scaleAnimation = new ScaleAnimation(1, 6, duration-200);
+            ScaleAnimation scaleAnimation = new ScaleAnimation(1, 14, duration-200);
             PointF oldPos = circleSprite.getPosition();
             PointF end = new PointF(0, RetroEngine.H - oldPos.y);
 
@@ -92,7 +94,15 @@ public class RandomCirclesState extends State {
     @Override
     public void updateLogic() {
         updateSprites();
-
+//        List<AbstractSprite> list = getRootGroup().getChildren();
+//        synchronized (list) {
+//            for (AbstractSprite sprite : list) {
+//                if (sprite.getClass() == CircleSprite.class) {
+//
+//                    ((CircleSprite) sprite).redraw();
+//                }
+//            }
+//        }
         if (getSpriteCount() < MAX_CIRCLES) {
             // choose a random colour from the array
             int ixColour = MathUtils.getRandomBetween(0, COLOURS.length - 1);

@@ -16,7 +16,9 @@ import android.view.animation.BounceInterpolator;
 
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideScrollerState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.helloWorld.HelloWorldActivity;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
@@ -92,7 +94,45 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Random colored circles moving up the screen", R.color.card_colour_second, new View.OnClickListener() {
+        dataset.add(builder.create("Explosion sprite with text", R.color.card_colour_fifth, new View.OnClickListener() {
+                    @Override
+                    public void onClick(final View view) {
+                        createAnimation(view, duration);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Bundle b = new Bundle();
+                                b.putSerializable("currentState", ExplosionSpriteState.class);
+                                Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
+                                myIntent.putExtras(b);
+                                startActivityForResult(myIntent, 0);
+                            }
+                        }, duration);
+
+                    }
+                })
+        );
+
+        dataset.add(builder.create("Moving tiled background", R.color.card_colour_third, new View.OnClickListener() {
+                    @Override
+                    public void onClick(final View view) {
+                        createAnimation(view, duration);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                Bundle b = new Bundle();
+                                b.putSerializable("currentState", TiledBackgroundState.class);
+                                Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
+                                myIntent.putExtras(b);
+                                startActivityForResult(myIntent, 0);
+                            }
+                        }, duration);
+
+                    }
+                })
+        );
+
+        dataset.add(builder.create("Random colored circles falling down", R.color.card_colour_second, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);

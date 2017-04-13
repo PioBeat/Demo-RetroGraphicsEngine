@@ -12,7 +12,7 @@
     <color name="card_colour_second">#009D91</color>
     <color name="card_colour_third">#FF6F00</color>
     <color name="card_colour_fourth">#5CCCCC</color>
-    <color name="card_colour_fifth">#C9F76F</color>
+    <color name="card_colour_fifth">#caa666</color>
 
     <color name="card_colour_holo_green">@android:color/holo_green_light</color>
 </resources>

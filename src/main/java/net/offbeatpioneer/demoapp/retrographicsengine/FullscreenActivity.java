@@ -7,7 +7,9 @@ import android.util.Log;
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideScrollerState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.BasicSpriteExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
@@ -32,9 +34,9 @@ public class FullscreenActivity extends AppCompatActivity {
         ResManager.initImages(getResources());
         drawView = (DrawView) findViewById(R.id.graphics);
         renderThread = new RenderThread(drawView);
-        renderThread.addStates(new BasicSpriteExample(), new SideScrollerState(), new ParallaxBackgroundState(), new RandomCirclesState());
-//        renderThread.initStates();
-//        drawView.setRenderThread(renderThread);
+        renderThread.addStates(new BasicSpriteExample(), new SideScrollerState(),
+                new ParallaxBackgroundState(), new RandomCirclesState(),
+                new ExplosionSpriteState(), new TiledBackgroundState());
 
         Bundle b = getIntent().getExtras();
         if (b != null) {
