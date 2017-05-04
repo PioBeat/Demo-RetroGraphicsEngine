@@ -11,6 +11,7 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.Explosion
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.BasicSpriteExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.SpriteQuadTreeExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
@@ -36,7 +37,7 @@ public class FullscreenActivity extends AppCompatActivity {
         renderThread = new RenderThread(drawView);
         renderThread.addStates(new BasicSpriteExample(), new SideScrollerState(),
                 new ParallaxBackgroundState(), new RandomCirclesState(),
-                new ExplosionSpriteState(), new TiledBackgroundState());
+                new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample());
 
         Bundle b = getIntent().getExtras();
         if (b != null) {

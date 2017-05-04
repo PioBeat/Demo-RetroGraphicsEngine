@@ -9,15 +9,12 @@ import android.graphics.PointF;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
-import net.offbeatpioneer.retroengine.core.animation.LinearTranslation;
 import net.offbeatpioneer.retroengine.core.animation.RelativeLinearTranslation;
-import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 import net.offbeatpioneer.retroengine.core.states.State;
 
 /**
@@ -59,7 +56,7 @@ public class TiledBackgroundState extends State {
                 opt);
 
 
-        SpriteGroup background = new SpriteGroup();
+        SpriteListGroup background = new SpriteListGroup();
 
         int width = bitmapTile.getWidth();
         int height = bitmapTile.getHeight();

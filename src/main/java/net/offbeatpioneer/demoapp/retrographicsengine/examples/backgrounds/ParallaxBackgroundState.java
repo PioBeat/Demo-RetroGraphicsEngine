@@ -18,7 +18,7 @@ import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.animation.AbsoluteSingleNodeLinearTranslation;
 import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 import net.offbeatpioneer.retroengine.core.states.State;
 
 /**
@@ -29,7 +29,7 @@ import net.offbeatpioneer.retroengine.core.states.State;
 public class ParallaxBackgroundState extends State {
 
     Player player;
-    SpriteGroup obstacles = new SpriteGroup();
+    SpriteListGroup obstacles = new SpriteListGroup();
 
     public ParallaxBackgroundState() {
         super();

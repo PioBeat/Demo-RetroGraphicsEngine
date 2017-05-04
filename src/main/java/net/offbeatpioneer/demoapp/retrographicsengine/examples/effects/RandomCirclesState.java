@@ -15,13 +15,9 @@ import net.offbeatpioneer.retroengine.core.animation.AnimationSuite;
 import net.offbeatpioneer.retroengine.core.animation.IAnimationSuiteListener;
 import net.offbeatpioneer.retroengine.core.animation.RelativeLinearTranslation;
 import net.offbeatpioneer.retroengine.core.animation.ScaleAnimation;
-import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
 import net.offbeatpioneer.retroengine.core.sprites.simple.CircleSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
 import net.offbeatpioneer.retroengine.core.util.MathUtils;
-
-import java.util.List;
 
 /**
  * Example shows the creation of circles. In addition animations are applied

@@ -9,7 +9,7 @@ import android.util.DisplayMetrics;
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 
 /**
  * Repräsentiert eine Reihe von Tiles
@@ -17,7 +17,7 @@ import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
  * @author Dominik Grzelak
  * @since 07.11.2014
  */
-public class TileRow extends SpriteGroup {
+public class TileRow extends SpriteListGroup {
     public static int DEFAULT_WIDTH_TILE = 64;
     public static int DEFAULT_HEIGHT_TILE = 64;
 

@@ -2,13 +2,13 @@ package net.offbeatpioneer.demoapp.retrographicsengine.examples.effects;
 
 import android.graphics.PointF;
 
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 
 /**
  * @author Dominik Grzelak
  * @since 08.11.2014
  */
-public class TileMatrix extends SpriteGroup {
+public class TileMatrix extends SpriteListGroup {
     private int widthScreen;
     private int heightScreen;
 //    private List<TileRow> tileMatrix;

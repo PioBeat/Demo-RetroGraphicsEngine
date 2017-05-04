@@ -2,7 +2,8 @@ package net.offbeatpioneer.demoapp;
 
 import net.offbeatpioneer.demoapp.retrographicsengine.sprites.Mine;
 import net.offbeatpioneer.retroengine.auxiliary.struct.quadtree.QuadTree;
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGroup;
+import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class CoreEngineTest {
     public void spriteGroupTest() throws Exception {
         assertEquals(4, 2 + 2);
 
-        SpriteGroup group = new SpriteGroup();
+        SpriteListGroup group = new SpriteListGroup();
 
         Mine m = new Mine();
         Mine m2 = new Mine();
@@ -36,7 +37,7 @@ public class CoreEngineTest {
         QuadTree qtree = new QuadTree();
         qtree.DYNAMIC_MAX_OBJECTS = true;
         qtree.MAX_OBJ_TARGET_EXPONENT = 0.5;
-        for(int i = 0; i < 1000000; i++)
+        for(int i = 0; i < 10000; i++)
         {
             qtree.place(Math.round(Math.random()*1000), Math.round(Math.random()*1000), i);
         }
@@ -45,5 +46,9 @@ public class CoreEngineTest {
         for(QuadTree.CoordHolder each: list) {
             System.out.println(each.o);
         }
+
+        QuadTree<AbstractSprite> spriteQuadTree = new QuadTree<>();
+        qtree.DYNAMIC_MAX_OBJECTS = true;
+        qtree.MAX_OBJ_TARGET_EXPONENT = 0.5;
     }
 }

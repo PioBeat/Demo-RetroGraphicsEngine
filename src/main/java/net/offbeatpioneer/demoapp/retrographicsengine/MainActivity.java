@@ -23,6 +23,7 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.helloWorld.HelloW
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.BasicSpriteExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.SpriteQuadTreeExample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,21 +79,41 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Hello World example", R.color.card_colour_first, new View.OnClickListener() {
+        dataset.add(builder.create("Quadtree", R.color.card_colour_first, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                Intent intent = new Intent(view.getContext(), HelloWorldActivity.class);
-                                startActivityForResult(intent, 0);
+                                Bundle b = new Bundle();
+                                b.putSerializable("currentState", SpriteQuadTreeExample.class);
+                                Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
+                                myIntent.putExtras(b);
+                                startActivityForResult(myIntent, 0);
                             }
                         }, duration);
 
                     }
                 })
         );
+
+
+//        dataset.add(builder.create("Hello World example", R.color.card_colour_first, new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(final View view) {
+//                        createAnimation(view, duration);
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                Intent intent = new Intent(view.getContext(), HelloWorldActivity.class);
+//                                startActivityForResult(intent, 0);
+//                            }
+//                        }, duration);
+//
+//                    }
+//                })
+//        );
 
         dataset.add(builder.create("Explosion sprite with text", R.color.card_colour_fifth, new View.OnClickListener() {
                     @Override
