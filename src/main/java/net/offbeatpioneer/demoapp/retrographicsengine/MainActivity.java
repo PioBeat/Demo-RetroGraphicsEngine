@@ -19,11 +19,11 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideS
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.helloWorld.HelloWorldActivity;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.helloWorld.HelloWorldActivity;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.BasicSpriteExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.SpriteQuadTreeExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -16,6 +16,7 @@ public class HelloState extends State {
     @Override
     public void init() {
         TextElement textSprite = new TextElement("Hello, World!");
+        textSprite.setBgColor(Color.argb(150, 255, 204, 88));
         textSprite.init(new PointF(0, 0));
         addSprite(textSprite);
     }

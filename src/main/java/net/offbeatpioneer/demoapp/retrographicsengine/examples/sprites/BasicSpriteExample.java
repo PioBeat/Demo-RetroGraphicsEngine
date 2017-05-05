@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation;
+package net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

@@ -10,8 +10,8 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideS
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.BasicSpriteExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.spriteCompilation.SpriteQuadTreeExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
