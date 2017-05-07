@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle("RetroGraphicsEngine - Demo app");
+            ab.setTitle("RetroGraphicsEngine v-0.9.3 - Demo app");
         }
         handler = new Handler();
 //        setSupportActionBar(toolbar);

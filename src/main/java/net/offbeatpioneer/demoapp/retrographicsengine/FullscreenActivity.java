@@ -39,18 +39,17 @@ public class FullscreenActivity extends AppCompatActivity {
                 new ParallaxBackgroundState(), new RandomCirclesState(),
                 new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample());
 
+        Class<?> tmp = BasicSpriteExample.class;
         Bundle b = getIntent().getExtras();
         if (b != null) {
             // Hole aktuelle Gamestate, falls vorhanden
-            Class<?> tmp = (Class<?>) b.get("currentState");
-            if (tmp != null) {
-                Log.v("MainActivity", "Load transfered State: " + tmp.getClass());
-                renderThread.setCurrentState(tmp);
-//                drawView.setCurrentState(tmp);
+            Class<?> tmp2 = (Class<?>) b.get("currentState");
+            if (tmp2 != null) {
+                Log.v("MainActivity", "Load transfered State: " + tmp2.getClass());
+                tmp = tmp2;
             }
-        } else {
-            renderThread.setCurrentState(BasicSpriteExample.class);
         }
+        renderThread.setCurrentState(tmp);
 
     }
 
