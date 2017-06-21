@@ -1,8 +1,13 @@
 package net.offbeatpioneer.demoapp;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
+
+import net.offbeatpioneer.demoapp.retrographicsengine.helper.PlayerCreator;
 import net.offbeatpioneer.demoapp.retrographicsengine.sprites.Mine;
 import net.offbeatpioneer.retroengine.auxiliary.struct.quadtree.QuadTree;
 import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
+import net.offbeatpioneer.retroengine.core.sprites.SpriteGridGroup;
 import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 
 import org.junit.Test;
@@ -37,13 +42,19 @@ public class CoreEngineTest {
         QuadTree qtree = new QuadTree();
         qtree.DYNAMIC_MAX_OBJECTS = true;
         qtree.MAX_OBJ_TARGET_EXPONENT = 0.5;
-        for(int i = 0; i < 10000; i++)
+        for(int i = 0; i < 50; i++)
         {
-            qtree.place(Math.round(Math.random()*1000), Math.round(Math.random()*1000), i);
+            qtree.place(Math.round(Math.random()*100), Math.round(Math.random()*100), i);
         }
 
         List<QuadTree.CoordHolder> list = qtree.findAll(0, 0, 100, 100);
         for(QuadTree.CoordHolder each: list) {
+            each.x = 200;
+            each.y = 200;
+            System.out.println(each.o);
+        }
+        List<QuadTree.CoordHolder> list2 = qtree.findAll(0, 0, 100, 100);
+        for(QuadTree.CoordHolder each: list2) {
             System.out.println(each.o);
         }
 

@@ -1,6 +1,7 @@
 package net.offbeatpioneer.demoapp.retrographicsengine.sprites;
 
 import android.graphics.Canvas;
+import android.graphics.PointF;
 
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
 import net.offbeatpioneer.retroengine.core.sprites.IObstacleSprite;
@@ -25,6 +26,13 @@ public class Mine extends AnimatedSprite implements IObstacleSprite {
 
     public Mine() {
         super();
+        frameW = 50;
+        frameH = 50;
+    }
+
+    @Override
+    public void updateLogicTemplate() {
+        setPosition(new PointF(position.x + 10, position.y + 20));
     }
 
     @Override

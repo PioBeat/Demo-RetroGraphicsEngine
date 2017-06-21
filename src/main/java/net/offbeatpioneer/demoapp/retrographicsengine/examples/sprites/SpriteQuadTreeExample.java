@@ -40,7 +40,7 @@ public class SpriteQuadTreeExample extends State {
 
     @Override
     public void init() {
-        StaticBackgroundLayer bg = new StaticBackgroundLayer(ResManager.BACKGROUND_STAR_2);
+        StaticBackgroundLayer bg = new StaticBackgroundLayer(ResManager.BACKGROUND_STAR_2, false);
         addBackgroundLayer(bg);
 //        setReferenceSpriteOffsets(-RetroEngine.W / 2, -RetroEngine.H / 2);
 
@@ -80,8 +80,8 @@ public class SpriteQuadTreeExample extends State {
 
     @Override
     public void render(Canvas canvas, Paint paint, long currentTime) {
-//        drawBackground(canvas);
-        canvas.drawColor(Color.rgb(255, 204, 88));
+        drawBackground(canvas);
+//        canvas.drawColor(Color.rgb(255, 204, 88));
         Paint p = new Paint();
         p.setColor(Color.BLUE);
         p.setStrokeWidth(3f);

@@ -4,7 +4,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,8 +27,8 @@ import net.offbeatpioneer.retroengine.core.states.State;
  */
 public class ParallaxBackgroundState extends State {
 
-    Player player;
-    SpriteListGroup obstacles = new SpriteListGroup();
+    private Player player;
+    private SpriteListGroup obstacles = new SpriteListGroup();
 
     public ParallaxBackgroundState() {
         super();
@@ -38,7 +37,7 @@ public class ParallaxBackgroundState extends State {
 
     @Override
     public void init() {
-        
+
         ParallaxLayer bgLayer = new ParallaxLayer(ResManager.BACKGROUND_STAR_2, 1f);
         ParallaxLayer backgroundLayer = new ParallaxLayer(ResManager.PARALAYER_STAR_1, 0.6f);
         player = PlayerCreator.create();
@@ -74,16 +73,24 @@ public class ParallaxBackgroundState extends State {
     public void updateLogic() {
 
         setReferenceSprite(player);
-//        System.out.println("MAIN: " + getViewportOrigin().x + " // " + getViewportOrigin().y);
-        updateSprites();
 
-//        System.out.println(obstacles.getChildren().get(0).getViewportOrigin().x + " // " + obstacles.getChildren().get(0).getViewportOrigin().y);
+        if (addAction) {
+            addAction = false;
+            AbstractSprite plusOne = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.BOTTOMCENTER);
+            addSprite(plusOne);
+            AbstractSprite plusOne1 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.TOPCENTER);
+            addSprite(plusOne1);
+            AbstractSprite plusOne2 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.CENTERRIGHT);
+            addSprite(plusOne2);
+            AbstractSprite plusOne3 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.CENTERLEFT);
+            addSprite(plusOne3);
+        }
+        updateSprites();
     }
 
 
     @Override
     public void cleanUp() {
-
     }
 
     @Override
@@ -91,11 +98,10 @@ public class ParallaxBackgroundState extends State {
         return true;
     }
 
-    private SparseArray<PointF> mActivePointers = new SparseArray<PointF>();
-    ;
     boolean twoTouch = false;
 
     private boolean touchAction = false;
+    private boolean addAction = false;
 
     @Override
     public boolean onTouchEvent(View v, MotionEvent motionEvent) {
@@ -105,21 +111,14 @@ public class ParallaxBackgroundState extends State {
         } else if (motionEvent.getAction() == android.view.MotionEvent.ACTION_UP) {
             Log.d("TouchTest:Gameplay", "Touch up");
             touchAction = false;
-            AbstractSprite plusOne = bla(AbsoluteSingleNodeLinearTranslation.Direction.BOTTOMCENTER);
-            addSprite(plusOne);
-            AbstractSprite plusOne1 = bla(AbsoluteSingleNodeLinearTranslation.Direction.TOPCENTER);
-            addSprite(plusOne1);
-            AbstractSprite plusOne2 = bla(AbsoluteSingleNodeLinearTranslation.Direction.CENTERRIGHT);
-            addSprite(plusOne2);
-            AbstractSprite plusOne3 = bla(AbsoluteSingleNodeLinearTranslation.Direction.CENTERLEFT);
-            addSprite(plusOne3);
+            addAction = true;
         }
         player.setTouch(motionEvent.getX(), motionEvent.getY());
         player.TOUCH_ACTION = touchAction;
         return false;
     }
 
-    public AbstractSprite bla(AbsoluteSingleNodeLinearTranslation.Direction direction) {
+    private AbstractSprite createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction direction) {
         AnimatedSprite plusOne = SpriteFactory.createPlusOne(player.getPosition());
         AbsoluteSingleNodeLinearTranslation linearTranslation2 = new AbsoluteSingleNodeLinearTranslation(player, direction, 1000);
         plusOne.addAnimation(linearTranslation2);
