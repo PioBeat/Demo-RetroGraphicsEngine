@@ -15,12 +15,11 @@ import android.view.View;
 import android.view.animation.BounceInterpolator;
 
 import net.offbeatpioneer.demoapp.R;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideScrollerState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.helloWorld.HelloWorldActivity;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
