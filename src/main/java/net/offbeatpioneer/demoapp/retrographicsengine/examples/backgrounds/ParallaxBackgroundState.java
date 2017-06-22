@@ -29,6 +29,8 @@ public class ParallaxBackgroundState extends State {
 
     private Player player;
     private SpriteListGroup obstacles = new SpriteListGroup();
+    ParallaxLayer bgLayer;
+    ParallaxLayer backgroundLayer;
 
     public ParallaxBackgroundState() {
         super();
@@ -38,8 +40,8 @@ public class ParallaxBackgroundState extends State {
     @Override
     public void init() {
 
-        ParallaxLayer bgLayer = new ParallaxLayer(ResManager.BACKGROUND_STAR_2, 1f);
-        ParallaxLayer backgroundLayer = new ParallaxLayer(ResManager.PARALAYER_STAR_1, 0.6f);
+        bgLayer = new ParallaxLayer(ResManager.BACKGROUND_STAR_2, 1f);
+        backgroundLayer = new ParallaxLayer(ResManager.PARALAYER_STAR_1, 0.6f);
         player = PlayerCreator.create();
 
         addBackgroundLayer(bgLayer);
@@ -91,6 +93,8 @@ public class ParallaxBackgroundState extends State {
 
     @Override
     public void cleanUp() {
+        bgLayer.recycle();
+        backgroundLayer.recycle();
     }
 
     @Override
