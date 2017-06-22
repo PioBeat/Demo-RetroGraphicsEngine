@@ -44,10 +44,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle("RetroGraphicsEngine v-0.9.3 - Demo app");
+            ab.setTitle(R.string.title_version);
         }
         handler = new Handler();
-//        setSupportActionBar(toolbar);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
