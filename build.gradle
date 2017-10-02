@@ -1,8 +1,20 @@
 apply plugin: 'com.android.application'
 
+def keystorePropertiesFile = rootProject.file("keystore-demo-app.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
 android {
+    signingConfigs {
+        config {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "net.offbeatpioneer.demoapp.retrographicsengine"
         minSdkVersion 16
@@ -15,6 +27,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            signingConfig signingConfigs.config
         }
     }
 }
@@ -28,15 +44,11 @@ repositories {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-
-
-
     //own dependencies
-//    compile project(':offbeat-components')
+    //    compile project(':offbeat-components')
     compile 'net.offbeat-pioneer.android:offbeat-commons:0.3'
-//    compile 'net.offbeat-pioneer.android:retroengine:0.9.3.3'
+    //    compile 'net.offbeat-pioneer.android:retroengine:0.9.3.3'
     compile project(':retroengine')
-
     compile 'com.android.support:support-compat:26.0.0-alpha1'
     compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
     compile 'com.android.support:design:26.0.0-alpha1'
@@ -46,29 +58,24 @@ dependencies {
     compile 'com.android.support:gridlayout-v7:26.0.0-alpha1'
     compile 'com.android.support:support-v4:26.0.0-alpha1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-//    compile 'com.google.firebase:firebase-core:11.2.2'
-//    compile('com.google.firebase:firebase-ads:11.2.2', {
-//        exclude group: 'com.google.android.gms', module: 'play-services-ads-lite'
-//        exclude group: 'com.google.android.gms', module: 'play-services-clearcut'
-//        exclude group: 'com.google.android.gms', module: 'play-services-gass'
-//    })
+    //    compile 'com.google.firebase:firebase-core:11.2.2'
+    //    compile('com.google.firebase:firebase-ads:11.2.2', {
+    //        exclude group: 'com.google.android.gms', module: 'play-services-ads-lite'
+    //        exclude group: 'com.google.android.gms', module: 'play-services-clearcut'
+    //        exclude group: 'com.google.android.gms', module: 'play-services-gass'
+    //    })
     compile 'com.google.firebase:firebase-crash:10.0.0'
-//    compile 'com.google.android.gms:play-services-analytics:11.0.4'
-//    compile 'com.google.android.gms:play-services-ads-lite:11.0.4'
-//    compile 'com.google.android.gms:play-services-clearcut:11.0.4'
-//    compile 'com.google.android.gms:play-services-gass:11.0.4'
+    //    compile 'com.google.android.gms:play-services-analytics:11.0.4'
+    //    compile 'com.google.android.gms:play-services-ads-lite:11.0.4'
+    //    compile 'com.google.android.gms:play-services-clearcut:11.0.4'
+    //    compile 'com.google.android.gms:play-services-gass:11.0.4'
     compile 'com.google.firebase:firebase-appindexing:10.0.0'
-
-
     //3rd party
     compile 'com.github.flavienlaurent.discrollview:library:0.0.2@aar'
     compile 'jp.wasabeef:recyclerview-animators:2.2.6'
     compile('org.apmem.tools:layouts:1.10@aar', {
         exclude group: 'com.android.support', module: 'support-compat'
     })
-
-
-
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
