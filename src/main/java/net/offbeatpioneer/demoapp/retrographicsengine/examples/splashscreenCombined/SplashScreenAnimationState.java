@@ -23,12 +23,12 @@ import net.offbeatpioneer.retroengine.core.states.State;
 import java.util.List;
 
 /**
- * Created by Dome on 11.02.2017.
+ * @author Dominik Grzelak
+ * @since 11.02.2017.
  */
-
 public class SplashScreenAnimationState extends State {
 
-    AnimationTimeline storyLine = new AnimationTimeline();
+    private AnimationTimeline storyLine = new AnimationTimeline();
 
     @Override
     public void init() {
@@ -37,7 +37,6 @@ public class SplashScreenAnimationState extends State {
         AnimatedSprite fighter = new AnimatedSprite();
         fighter.init(ResManager.ENEMY_FIGHTER, new PointF(0, 0));
         AbsoluteSingleNodeLinearTranslation anim = new AbsoluteSingleNodeLinearTranslation(fighter, AbsoluteSingleNodeLinearTranslation.Direction.BOTTOMRIGHT, duration);
-        anim.setLoop(false);
         fighter.addAnimation(anim);
 
         StoryLineSlot slot0 = new StoryLineSlot(duration);
@@ -45,12 +44,12 @@ public class SplashScreenAnimationState extends State {
         slot0.addSprite(fighter);
 
 
-        AlphaValueTransition alphaAnim = new AlphaValueTransition(0, 255, 5000);
+        AlphaValueTransition alphaAnim = new AlphaValueTransition(0, 255, 2000);
         TextElement logoText = new TextElement("Hello, World", new PointF(RetroEngine.W / 2 - 50, RetroEngine.H / 2 - 50));
         logoText.setFont(new GameFont(35));
         logoText.init();
         logoText.addAnimation(alphaAnim);
-        StoryLineSlot slot1 = new StoryLineSlot(logoText, 5000);
+        StoryLineSlot slot1 = new StoryLineSlot(logoText, duration);
         slot1.setOverwrite(true);
 
         storyLine.add(slot0);
@@ -58,7 +57,7 @@ public class SplashScreenAnimationState extends State {
 
         List<AbstractSprite> spriteList = storyLine.getCurrentElement().getAnimatedSprites();
         storyLine.initCurrentSlot(); //beginne
-        storyLine.finalize();
+        storyLine.finalizeTimeline();
 
         addSprites(spriteList);
     }
