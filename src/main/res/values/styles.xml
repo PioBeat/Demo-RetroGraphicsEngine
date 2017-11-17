@@ -30,7 +30,7 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="textViewStyle">
-        <item name="font">@string/app_font</item>
+        <item name="ofpFont">@string/app_font</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textSize">23sp</item>

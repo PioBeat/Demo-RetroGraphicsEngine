@@ -5,6 +5,6 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_main">MainActivity</string>
 
-    <string name="app_font">comforta.ttf</string>
+    <string name="app_font">fonts/comforta.ttf</string>
     <string name="title_version">RetroGraphicsEngine v-0.9.3.3 - Demo app</string>
 </resources>
