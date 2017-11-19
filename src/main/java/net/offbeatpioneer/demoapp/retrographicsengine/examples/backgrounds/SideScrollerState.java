@@ -96,7 +96,7 @@ public class SideScrollerState extends State {
         int redValue = Color.red(pixel);
         int blueValue = Color.blue(pixel);
         int greenValue = Color.green(pixel);
-        Log.v(TAG, player.getPosition() + " = " + redValue + "," + greenValue + "," + blueValue);
+//        Log.v(TAG, player.getPosition() + " = " + redValue + "," + greenValue + "," + blueValue);
         if (closeMatch(Color.argb(1, 136, 0, 21), pixel, 25)) {
             Log.v(TAG, "Collision detected");
         }
