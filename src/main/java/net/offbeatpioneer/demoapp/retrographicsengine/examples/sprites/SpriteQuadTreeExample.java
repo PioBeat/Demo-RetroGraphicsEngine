@@ -32,7 +32,8 @@ import net.offbeatpioneer.retroengine.core.states.State;
  * @since 04.05.2017
  */
 public class SpriteQuadTreeExample extends State {
-    private RectF queryRange;
+    private RectF queryRange = new RectF();
+    Paint p = new Paint();
 
     public SpriteQuadTreeExample() {
         super(new SpriteQuadtreeGroup());
@@ -43,7 +44,9 @@ public class SpriteQuadTreeExample extends State {
         StaticBackgroundLayer bg = new StaticBackgroundLayer(ResManager.BACKGROUND_STAR_2, false);
         addBackgroundLayer(bg);
 //        setReferenceSpriteOffsets(-RetroEngine.W / 2, -RetroEngine.H / 2);
-
+        p.setColor(Color.YELLOW);
+        p.setStrokeWidth(3f);
+        p.setStyle(Paint.Style.STROKE);
         setQueryRange(0, 0);
         for (int i = 0; i < RetroEngine.W / 42; i++) {
             addSprite(createRunningGrant(new PointF(i * 42 + 10, 100)));
@@ -75,17 +78,13 @@ public class SpriteQuadTreeExample extends State {
         PointF o = getViewportOrigin();
 //        startX /= 2;
         startY /= 2;
-        this.queryRange = new RectF(o.x + startX, o.y + startY, o.x + startX + 200, o.y + startY + 200);
+        this.queryRange.set(o.x + startX, o.y + startY, o.x + startX + 200, o.y + startY + 200);
     }
 
     @Override
     public void render(Canvas canvas, Paint paint, long currentTime) {
         drawBackground(canvas);
-//        canvas.drawColor(Color.rgb(255, 204, 88));
-        Paint p = new Paint();
-        p.setColor(Color.BLUE);
-        p.setStrokeWidth(3f);
-        p.setStyle(Paint.Style.STROKE);
+
         canvas.drawRect(getRect(), p);
 
         drawSprites(canvas, currentTime);
