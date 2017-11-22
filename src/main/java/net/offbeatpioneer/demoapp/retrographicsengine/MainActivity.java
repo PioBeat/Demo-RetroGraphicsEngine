@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Random colored circles falling down", R.color.card_colour_second, new View.OnClickListener() {
+        dataset.add(builder.create("Random colored circles", R.color.card_colour_second, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Showcase of possibilities with sprites", R.color.card_colour_first, new View.OnClickListener() {
+        dataset.add(builder.create("Sprite showcase", R.color.card_colour_first, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Background example - side scroller", R.color.card_colour_third, new View.OnClickListener() {
+        dataset.add(builder.create("Background (1) - side scroller", R.color.card_colour_third, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Background example - parallax background", R.color.card_colour_fourth, new View.OnClickListener() {
+        dataset.add(builder.create("Background (2) - parallax background", R.color.card_colour_fourth, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Combination of DrawView and other android components", R.color.card_colour_fifth, new View.OnClickListener() {
+        dataset.add(builder.create("RetroGraphicsEngine with other android components", R.color.card_colour_fifth, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
