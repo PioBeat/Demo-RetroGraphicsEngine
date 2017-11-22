@@ -10,6 +10,7 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideS
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.grid.SpriteGridGroupExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
@@ -17,9 +18,10 @@ import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
 import net.offbeatpioneer.retroengine.view.TouchListener;
 
+import static android.os.Process.THREAD_PRIORITY_FOREGROUND;
+
 
 public class FullscreenActivity extends AppCompatActivity {
-
 
     public static RenderThread renderThread;
     public static TouchListener touchListener;
@@ -33,11 +35,11 @@ public class FullscreenActivity extends AppCompatActivity {
 
         RetroEngine.init(this);
         ResManager.initImages(getResources());
-        drawView = (DrawView) findViewById(R.id.graphics);
-        renderThread = new RenderThread(drawView);
+        drawView = findViewById(R.id.graphics);
+        renderThread = new RenderThread(drawView); //, Thread.MAX_PRIORITY);
         renderThread.addStates(new BasicSpriteExample(), new SideScrollerState(),
                 new ParallaxBackgroundState(), new RandomCirclesState(),
-                new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample());
+                new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample(), new SpriteGridGroupExample());
 
         Class<?> tmp = BasicSpriteExample.class;
         Bundle b = getIntent().getExtras();

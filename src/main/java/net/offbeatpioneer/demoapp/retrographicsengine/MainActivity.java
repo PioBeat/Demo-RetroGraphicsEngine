@@ -20,6 +20,7 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideS
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.grid.SpriteGridGroupExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
@@ -97,14 +98,17 @@ public class MainActivity extends AppCompatActivity {
         );
 
 
-//        dataset.add(builder.create("Hello World example", R.color.card_colour_first, new View.OnClickListener() {
+//        dataset.add(builder.create("Grid Example", R.color.card_colour_fourth, new View.OnClickListener() {
 //                    @Override
 //                    public void onClick(final View view) {
 //                        createAnimation(view, duration);
 //                        handler.postDelayed(new Runnable() {
 //                            @Override
 //                            public void run() {
-//                                Intent intent = new Intent(view.getContext(), HelloWorldActivity.class);
+//                                Bundle b = new Bundle();
+//                                b.putSerializable("currentState", SpriteGridGroupExample.class);
+//                                Intent intent = new Intent(view.getContext(), FullscreenActivity.class);
+//                                intent.putExtras(b);
 //                                startActivityForResult(intent, 0);
 //                            }
 //                        }, duration);

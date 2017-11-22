@@ -1,13 +1,8 @@
 package net.offbeatpioneer.demoapp;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-
-import net.offbeatpioneer.demoapp.retrographicsengine.helper.PlayerCreator;
 import net.offbeatpioneer.demoapp.retrographicsengine.sprites.Mine;
 import net.offbeatpioneer.retroengine.auxiliary.struct.quadtree.QuadTree;
 import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
-import net.offbeatpioneer.retroengine.core.sprites.SpriteGridGroup;
 import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 
 import org.junit.Test;
