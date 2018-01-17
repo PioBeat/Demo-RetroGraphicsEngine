@@ -24,6 +24,7 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.grid.SpriteGridGr
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.tutorials.TouchInteractionActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +94,26 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }, duration);
 
+                    }
+                })
+        );
+
+        dataset.add(builder.create("Tutorial: Handling Touch Events", R.color.card_colour_second, new View.OnClickListener() {
+                    @Override
+                    public void onClick(final View view) {
+                        createAnimation(view, duration);
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                handler.postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Intent intent = new Intent(view.getContext(), TouchInteractionActivity.class);
+                                        startActivityForResult(intent, 0);
+                                    }
+                                }, duration);
+                            }
+                        }, duration);
                     }
                 })
         );
