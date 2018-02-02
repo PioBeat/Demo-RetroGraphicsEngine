@@ -91,7 +91,7 @@ public class RectangleGameState extends State {
         if (tc > timeNow + 2000) {
             timeNow = tc;
             int col = MathUtils.getRandomBetween(0, 1);
-            AbstractSprite rect = createRectangle(Color.parseColor(COLORS[0]));
+            AbstractSprite rect = createRectangle(Color.parseColor(COLORS[col]));
             addSprite(rect);
             rect.beginAnimation(0);
         }
