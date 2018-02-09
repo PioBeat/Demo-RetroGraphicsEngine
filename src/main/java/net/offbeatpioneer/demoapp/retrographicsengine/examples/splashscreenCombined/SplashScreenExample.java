@@ -36,7 +36,7 @@ public class SplashScreenExample extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        RetroEngine.isRunning = false;
+//        RetroEngine.running = false;
 //        try {
 //            renderThread.join();
 //        } catch (InterruptedException e) {
@@ -48,17 +48,19 @@ public class SplashScreenExample extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (renderThread != null) {
-            RetroEngine.shouldWait = false;
-        }
+//        if (renderThread != null) {
+            RetroEngine.resumeRenderThread();
+//            RetroEngine.shouldWait = false;
+//        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
-        if (renderThread != null) {
-            RetroEngine.isRunning = true;
-        }
+//        if (renderThread != null) {
+            RetroEngine.pauseRenderThread();
+//            RetroEngine.running = true;
+//        }
     }
 }

@@ -1,13 +1,16 @@
 package net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.PointF;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
+import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.demoapp.retrographicsengine.Player;
 import net.offbeatpioneer.demoapp.retrographicsengine.ResManager;
 import net.offbeatpioneer.demoapp.retrographicsengine.helper.ExplosionCreator;
@@ -27,9 +30,11 @@ import net.offbeatpioneer.retroengine.core.sprites.simple.CircleSprite;
 import net.offbeatpioneer.retroengine.core.sprites.simple.RectangleSprite;
 import net.offbeatpioneer.retroengine.core.sprites.simple.TriangleSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.core.util.BitmapHelper;
 import net.offbeatpioneer.retroengine.core.util.MathUtils;
 
 //TODO add action events for some sprite and display toast
+
 /**
  * Example showing different types of sprite and combination of them.
  * Also the use of animation is shown here.
@@ -95,7 +100,7 @@ public class BasicSpriteExample extends State {
         addSprite(rectangleSprite);
 
         CircleSprite circleSprite = new CircleSprite(Color.BLUE);
-        circleSprite.initWithRadius(20, RetroEngine.W/2, RetroEngine.H/2);
+        circleSprite.initWithRadius(20, RetroEngine.W / 2, RetroEngine.H / 2);
         addSprite(circleSprite);
 
         TriangleSprite triangleSprite = new TriangleSprite(Color.GREEN);
@@ -104,18 +109,21 @@ public class BasicSpriteExample extends State {
     }
 
     private void generateEnvironment() {
-//        if (Math.random() < 0.07) {
-        Debris debri = new Debris();
+        // store the viewpoint origin for later use
+        PointF p = getViewportOrigin();
+
+        // create a random position on the canvas
         int x = MathUtils.getRandomBetween(50, RetroEngine.W - 150);
         int y = MathUtils.getRandomBetween(50, RetroEngine.H - 150);
         PointF posRandom = new PointF(x, y);
 
-        PointF p = getViewportOrigin();//backgroundNode.getViewportOrigin();
-//            p.y += MathUtils.getRandomBetween(0, RetroEngine.H);
+
+        Debris debri = new Debris();
         debri.initAsAnimation(ResManager.RUNNUNG_GRANT, 79, 42, 20, 12, p, true);
         debri.setViewportOrigin(p);
         debri.setPosition(new PointF(100, 100));
 
+        // add a rotation and scale animation to the animated sprite
         RotationAnimation rot = new RotationAnimation(0, 360, 4000);
         rot.setLoop(true);
         ScaleAnimation scaleAnimation = new ScaleAnimation(0.1f, 2.5f, 4000);
@@ -123,68 +131,76 @@ public class BasicSpriteExample extends State {
         scaleAnimation.setListener(new IAnimationSuiteListener() {
             @Override
             public void onAnimationStart(AnimationSuite animationSuite) {
-                System.out.println("Animation gestartet");
+                System.out.println("Animation started");
             }
 
             @Override
             public void onAnimationRepeat(AnimationSuite animationSuite) {
-                System.out.println("Animation wiederholt sich!");
-//                animationSuite.getAnimatedSprite().setActive(true);
+                System.out.println("Animation repeated");
             }
 
             @Override
             public void onAnimationEnd(AnimationSuite animationSuite) {
-                System.out.println("Animation beendet");
+                System.out.println("Animation ended");
             }
         });
         debri.addAnimation(scaleAnimation);
         debri.addAnimation(rot);
         debri.beginAnimation();
 
-
+        // create another animated sprite
         AnimatedSprite debris1 = new AnimatedSprite();
         debris1.initAsAnimation(ResManager.DEBRIS_1, 64, 61, 6, 6, new PointF(300, 200), true);
         debris1.setViewportOrigin(p);
-//        debri.setAngle(90);
-        addSprite(debris1);
+//        addSprite(debris1);
 
 
-        ScaleAnimation scaleAnimation1 = new ScaleAnimation(1, 1.5f, 800);
-        scaleAnimation1.setLoop(true);
-//        TextElement text = (TextElement) SpriteFactory.createTextSprite("Hello, World", new PointF(100, 200));
-//        EmptySprite empty = new EmptySprite();
-//        empty.init(ResManager.EMPTY, new PointF(300, 400));
-
-        TextElement text = new TextElement(debris1); //new TextElement("Hallo, Welt", new PointF(300, 400));
-        GameFont font = new GameFont(34); //(TextElement) SpriteFactory.createTextSprite("Hello, World", new PointF(100, 200));
+        // create a text element which decorates the above sprite
+        TextElement text = new TextElement(debris1);
+        GameFont font = new GameFont(34);
         text.setFont(font);
         text.initWithText("Asteroid");
-        text.addAnimation(scaleAnimation1);
-//        text.beginAnimation();
 
+        // Create two combined animations for the text sprite
         PointF endPosition = new PointF(0, -130);
+        ScaleAnimation scaleAnimation1 = new ScaleAnimation(1, 1.5f, 800);
+        scaleAnimation1.setLoop(true);
         RelativeLinearTranslation relativeLinearTranslation = new RelativeLinearTranslation(endPosition, 1500);
         relativeLinearTranslation.setLoop(true);
-
+        // add them and start the animation
+        text.addAnimation(scaleAnimation1);
         text.addAnimation(relativeLinearTranslation);
         text.beginAnimation();
-//        debris1.addAnimation(relativeLinearTranslation);
-//        debris1.beginAnimation();
-//        GameFont font = new GameFont(18);
-//        text.setFont(font);
+
+        // add the sprite to the scene
         addSprite(text);
-////        AnimatedSprite sprite = (AnimatedSprite) ExplosionCreator.getRandomExplosion(p);
-//        AnimatedSprite sprite = (AnimatedSprite) ExplosionCreator.getDebris(p);
-//        sprite.setViewportOrigin(backgroundNode.getViewportOrigin());
-
-
-//            AnimatedSprite sprite = SpriteAnimatorFactory.createAnimatedSprite(p, new PointF(RetroEngine.W, RetroEngine.H/2), 8000);
 
         addSprite(debri);
         int x2 = MathUtils.getRandomBetween(50, RetroEngine.W - 150);
         int y2 = MathUtils.getRandomBetween(50, RetroEngine.H - 150);
         PointF p2 = new PointF(x2, y2);
         addSprite(ExplosionCreator.getRandomExplosion(p2));
+
+        AnimatedSprite megaman = new AnimatedSprite();
+
+        // load the bitmap - the final size will differ depending on the target density of the
+        // canvas (which should be equal to the screen density)
+        Bitmap megamanJumpTexture = BitmapHelper.decodeSampledBitmapFromResource(RetroEngine.Resources,
+                R.drawable.megaman_jump,
+                150,
+                90);
+        // we need to convert the units
+        megaman.initAsAnimation(megamanJumpTexture, // the texture - sprite sheet
+                (int) MathUtils.convertDpToPixel(50), // height of a frame
+                (int) MathUtils.convertDpToPixel(27), // width of a frame
+                8, // the frames per second
+                7, // number of frames
+                new PointF(RetroEngine.W / 2, 0), // the position of the sprite
+                true // repeat the animation ?
+        );
+
+        addSprite(megaman);
+
 
     }
 

@@ -99,12 +99,16 @@ public class RectangleGameState extends State {
             if (each.checkColWithPoint(new PointF(x, y))) {
                 if (ColorTools.closeMatch(each.getTexture().getPixel(2, 2), Color.parseColor("red"), 0)) {
                     counter++;
+                    x = Float.MIN_VALUE;
+                    y = Float.MIN_VALUE;
                     getHandler().post(new Runnable() {
                         @Override
                         public void run() {
                             counterView.setText(String.format(Locale.getDefault(), "Hits: %d", counter));
                         }
                     });
+                } else {
+                    manager.changeGameState(BlueScreenState.class);
                 }
             }
         }

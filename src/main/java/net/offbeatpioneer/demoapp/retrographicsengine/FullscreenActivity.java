@@ -18,8 +18,6 @@ import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
 import net.offbeatpioneer.retroengine.view.TouchListener;
 
-import static android.os.Process.THREAD_PRIORITY_FOREGROUND;
-
 
 public class FullscreenActivity extends AppCompatActivity {
 
@@ -58,22 +56,24 @@ public class FullscreenActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+//        RetroEngine.resumeRenderThread();
         // starte gamethread wieder
-        if (renderThread != null) {
-//            Log.v("MainActivity", "starte gamethread wieder...");
-            RetroEngine.shouldWait = false;
-//            drawView.setRenderThread(renderThread);
-        }
+//        if (renderThread != null) {
+////            Log.v("MainActivity", "starte gamethread wieder...");
+//            RetroEngine.shouldWait = false;
+////            drawView.setRenderThread(renderThread);
+//        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
 
+//        RetroEngine.pauseRenderThread();
         // halte gamethread an
-        if (renderThread != null) {
-            Log.v("MainActivity", "Halte gamethread an...");
-            RetroEngine.isRunning = true;
-        }
+//        if (renderThread != null) {
+//            Log.v("MainActivity", "Halte gamethread an...");
+//            RetroEngine.running = true;
+//        }
     }
 }
