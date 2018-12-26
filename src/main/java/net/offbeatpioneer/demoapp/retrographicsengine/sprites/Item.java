@@ -24,16 +24,16 @@ public class Item extends AnimatedSprite {
     }
 
     @Override
-    public void updateLogicTemplate() {
-        if (autoDestroy) {
-            PointF o = getViewportOrigin();
-            int bz = getBufferZone();
-            if (!ContainsRect(new RectF(o.x - RetroEngine.W - bz, o.y
-                    - bz, o.x + RetroEngine.W + bz, o.y
-                    + RetroEngine.H + bz))) {
-                active = false;
-            }
-        }
+    public void updateLogicHook() {
+//        if (autoDestroy) {
+//            PointF o = getViewportOrigin();
+//            int bz = getBufferZone();
+//            if (!containsRect(new RectF(o.x - RetroEngine.W - bz, o.y
+//                    - bz, o.x + RetroEngine.W + bz, o.y
+//                    + RetroEngine.H + bz))) {
+//                active = false;
+//            }
+//        }
     }
 
 }

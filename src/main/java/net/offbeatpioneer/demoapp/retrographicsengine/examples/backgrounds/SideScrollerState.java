@@ -22,6 +22,7 @@ import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
 
+import static net.offbeatpioneer.retroengine.core.util.BitmapHelper.scaleToFit;
 import static net.offbeatpioneer.retroengine.core.util.ColorTools.closeMatch;
 
 /**
@@ -43,7 +44,7 @@ public class SideScrollerState extends State {
     private ParallaxLayer backgroundLayer;
     private FixedScrollableLayer bgLayer;
     private boolean addExplosion = false;
-
+    Bitmap bgLevel1Colmap;
     public SideScrollerState() {
         super();
         setStateName("SideScrollerState");
@@ -53,10 +54,17 @@ public class SideScrollerState extends State {
     public void init() {
 
         backgroundLayer = new ParallaxLayer(ResManager.PARALAYER_STAR_1, 0.6f);
-        bgLayer = new FixedScrollableLayer(ResManager.BG_LEVEL_1, 500, 0.7f);
-        player = PlayerCreator.create();
+        bgLayer = new FixedScrollableLayer(ResManager.BG_LEVEL_1, 500);
+        bgLevel1Colmap = ResManager.BG_LEVEL_1_COLMAP;
+        float scaleWidth = ((float) RetroEngine.W) / 500;
+        float scaleHeight = (float) Math.ceil((float) RetroEngine.H / (float) bgLevel1Colmap.getHeight());
+//        float scaleHeight2 = (float)layerH / RetroEngine.H;
+        bgLevel1Colmap = scaleToFit(bgLevel1Colmap, scaleWidth, scaleHeight);
 
-        textViewColl = (TextView) manager.getParentActivity().findViewById(R.id.textViewColl);
+        player = PlayerCreator.create();
+        player.setPosition(new PointF(player.getPosition().x, player.getPosition().y + 25));
+        player.setAngle(90f);
+        textViewColl = manager.getParentActivity().findViewById(R.id.textViewColl);
         textViewColl.setText("Collision detected");
         textViewColl.setVisibility(View.INVISIBLE);
 
@@ -82,24 +90,29 @@ public class SideScrollerState extends State {
         if (addExplosion) {
             addExplosion = false;
             PointF posEx = new PointF(player.getPosition().x + 50, player.getPosition().y);
+            PointF posEx2 = new PointF(player.getPosition().x - 50, player.getPosition().y);
             AnimatedSprite s = ExplosionCreator.getRandomExplosion(posEx);
+            AnimatedSprite s2 = ExplosionCreator.getRandomExplosion(posEx2);
             addSprite(s);
-            s.setDisable(false);
+            addSprite(s2);
+            s.setDisabled(false);
+            s2.setDisabled(false);
         }
 
         updateSprites();
 
         //check
-        FixedScrollableLayer layer = (FixedScrollableLayer) getBackgroundLayer(0);
-        Bitmap bitmap = layer.getBackground();
-        int pixel = bitmap.getPixel((int) player.getPosition().x, (int) player.getPosition().y);
-        int redValue = Color.red(pixel);
-        int blueValue = Color.blue(pixel);
-        int greenValue = Color.green(pixel);
+//        FixedScrollableLayer layer = (FixedScrollableLayer) getBackgroundLayer(0);
+////        Bitmap bitmap = layer.getBackground();
+//        int pixel = bgLevel1Colmap.getPixel((int) player.getPosition().x, (int) player.getPosition().y);
+//        int redValue = Color.red(pixel);
+//        int blueValue = Color.blue(pixel);
+//        int greenValue = Color.green(pixel);
+//
 //        Log.v(TAG, player.getPosition() + " = " + redValue + "," + greenValue + "," + blueValue);
-        if (closeMatch(Color.argb(1, 136, 0, 21), pixel, 25)) {
-            Log.v(TAG, "Collision detected");
-        }
+//        if (closeMatch(Color.argb(1, 255, 0, 195), pixel, 25)) {
+//            Log.v(TAG, "Collision detected");
+//        }
     }
 
     @Override
@@ -120,10 +133,10 @@ public class SideScrollerState extends State {
 
 
         //Test collision
-        FixedScrollableLayer layer = (FixedScrollableLayer) getBackgroundLayer(0); //(FixedScrollableLayer) backgroundNode.getBackgrounds().get(0);
-        Bitmap bitmap = layer.getBackground();
-        int pixel = bitmap.getPixel((int) player.getPosition().x, (int) player.getPosition().y);
-        collisionDetected = closeMatch(Color.argb(1, 136, 0, 21), pixel, 25);
+//        FixedScrollableLayer layer = (FixedScrollableLayer) getBackgroundLayer(0); //(FixedScrollableLayer) backgroundNode.getBackgrounds().get(0);
+//        Bitmap bitmap = layer.getBackground();
+        int pixel = bgLevel1Colmap.getPixel((int) player.getPosition().x, (int) player.getPosition().y);
+        collisionDetected = closeMatch(Color.argb(1, 255, 0, 195), pixel, 25);
         if (collisionDetected) {
             textViewColl.setVisibility(View.VISIBLE);
         } else {

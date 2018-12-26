@@ -24,7 +24,9 @@
         android:layout_gravity="top|right"
         android:visibility="invisible"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="24sp"
+        android:textSize="26sp"
+        android:padding="2dp"
+        android:background="@color/black_overlay"
         android:layout_height="wrap_content" />
 
 </FrameLayout>

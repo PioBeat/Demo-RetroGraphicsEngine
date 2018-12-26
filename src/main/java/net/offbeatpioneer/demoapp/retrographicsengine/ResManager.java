@@ -50,6 +50,7 @@ public class ResManager {
     public static Bitmap EXPLOSION_BIG2;
 
     public static Bitmap BG_LEVEL_1;
+    public static Bitmap BG_LEVEL_1_COLMAP;
     public static Bitmap RUNNUNG_GRANT;
 
 
@@ -103,6 +104,7 @@ public class ResManager {
         BACKGROUND_STAR_2 = BitmapFactory.decodeResource(res, R.drawable.star1);
         BACKGROUND_STAR_3 = BitmapFactory.decodeResource(res, R.drawable.bghighscore);
         BG_LEVEL_1 = BitmapFactory.decodeResource(res, R.drawable.level1);
+        BG_LEVEL_1_COLMAP = BitmapFactory.decodeResource(res, R.drawable.level1_colmap);
 
         PARALAYER_STAR_1 = BitmapFactory.decodeResource(res,
                 R.drawable.paralayer_star1);

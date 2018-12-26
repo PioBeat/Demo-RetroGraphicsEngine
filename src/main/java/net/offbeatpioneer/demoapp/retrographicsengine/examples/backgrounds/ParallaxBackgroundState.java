@@ -56,13 +56,22 @@ public class ParallaxBackgroundState extends State {
         sprite.setViewportOrigin(getViewportOrigin());
         sprite.setAutoDestroy(false);
         sprite.setActive(true);
-        sprite.setDisable(false);
+        sprite.setDisabled(false);
 
         addSprite(player);
 
         addSprite(obstacles);
 
         obstacles.add(sprite);
+
+        AbstractSprite plusOne = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.BOTTOMCENTER);
+        addSprite(plusOne);
+        AbstractSprite plusOne1 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.TOPCENTER);
+        addSprite(plusOne1);
+        AbstractSprite plusOne2 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.CENTERRIGHT);
+        addSprite(plusOne2);
+        AbstractSprite plusOne3 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.CENTERLEFT);
+        addSprite(plusOne3);
     }
 
     @Override
@@ -79,12 +88,16 @@ public class ParallaxBackgroundState extends State {
         if (addAction) {
             addAction = false;
             AbstractSprite plusOne = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.BOTTOMCENTER);
+            plusOne.setAutoDestroy(false);
             addSprite(plusOne);
             AbstractSprite plusOne1 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.TOPCENTER);
+            plusOne1.setAutoDestroy(false);
             addSprite(plusOne1);
             AbstractSprite plusOne2 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.CENTERRIGHT);
+            plusOne2.setAutoDestroy(false);
             addSprite(plusOne2);
             AbstractSprite plusOne3 = createAnimatedSprite(AbsoluteSingleNodeLinearTranslation.Direction.CENTERLEFT);
+            plusOne3.setAutoDestroy(false);
             addSprite(plusOne3);
         }
         updateSprites();

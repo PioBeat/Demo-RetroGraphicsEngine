@@ -24,7 +24,7 @@ public class Bullet extends AnimatedSprite {
     public long counter = 0;
 
     @Override
-    public void updateLogicTemplate() {
+    public void updateLogicHook() {
         if (speed.x == 0 && speed.y == 0)
             active = false;
 
@@ -34,12 +34,12 @@ public class Bullet extends AnimatedSprite {
         position.y += speed.y;
         counter++;
 
-        if (autoDestroy) {
-            PointF o = getViewportOrigin();
-            if (!ContainsRect(new RectF(o.x, o.y, o.x + RetroEngine.W, o.y + RetroEngine.H))) {
-                active = false;
-            }
-        }
+//        if (autoDestroy) {
+//            PointF o = getViewportOrigin();
+//            if (!containsRect(new RectF(o.x, o.y, o.x + RetroEngine.W, o.y + RetroEngine.H))) {
+//                active = false;
+//            }
+//        }
     }
 
     //TODO: entfernen, auslagern
@@ -54,7 +54,7 @@ public class Bullet extends AnimatedSprite {
         if (autoDestroy) { //Sprites sollen nicht unmittelbar zerstört werden
             //int dist = MainActivity.H*2;
             PointF o = getViewportOrigin();
-            if (!ContainsRect(new RectF(o.x, o.y, o.x + RetroEngine.W, o.y + RetroEngine.H))) {
+            if (!containsRect(new RectF(o.x, o.y, o.x + RetroEngine.W, o.y + RetroEngine.H))) {
                 active = false;
             }
         }

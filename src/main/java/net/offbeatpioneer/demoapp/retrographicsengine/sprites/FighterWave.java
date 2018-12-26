@@ -58,7 +58,7 @@ public class FighterWave extends AnimatedSprite implements IObstacleSprite {
             canvas.drawBitmap(texture, rotator, paint);
             if (autoDestroy) {
                 PointF o = getViewportOrigin();
-                if (!ContainsRect(new RectF(o.x - (int) (RetroEngine.W * bz),
+                if (!containsRect(new RectF(o.x - (int) (RetroEngine.W * bz),
                         o.y - (int) (RetroEngine.H * bz), o.x
                         + (int) (RetroEngine.W * (1.0 + bz)), o.y
                         + (int) (RetroEngine.H * (1.0 + bz))))) {

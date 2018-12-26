@@ -62,7 +62,7 @@ public class Fighter extends AnimatedSprite implements IObstacleSprite {
     }
 
     @Override
-    public void updateLogicTemplate() {
+    public void updateLogicHook() {
         if (RetroEngine.getTickCount() > starttime + 100) {
             starttime = RetroEngine.getTickCount();
             angleOffset = this.animPath[pathCnt];
@@ -77,21 +77,21 @@ public class Fighter extends AnimatedSprite implements IObstacleSprite {
         }
         position.x += speed.x;
         position.y += speed.y;
-        if (autoDestroy) {
-
-            // TODO muss vorher abgespeichert werden! sonst ist der
-            // viewpoint immer relativ
-            PointF o = getViewportOrigin();
-            //if (!ContainsRect(new Rect(o.x - bufferZone, o.y - bufferZone,
-            //		o.x + MainActivity.W + bufferZone, o.y + MainActivity.H
-            //				+ bufferZone))) {
-            if (!ContainsRect(new RectF(o.x - (int) (RetroEngine.W * bz), o.y - (int) (RetroEngine.H * bz),
-                    o.x + (int) (RetroEngine.W * (1.0 + bz)), o.y + (int) (RetroEngine.H * (1.0 + bz))
-            ))) {
-                active = false;
-                Log.v("EnemeyA", "Anemey entfernen zu weit entfernt->löschen");
-            }
-        }
+//        if (autoDestroy) {
+//
+//            // TODO muss vorher abgespeichert werden! sonst ist der
+//            // viewpoint immer relativ
+//            PointF o = getViewportOrigin();
+//            //if (!containsRect(new Rect(o.x - bufferZone, o.y - bufferZone,
+//            //		o.x + MainActivity.W + bufferZone, o.y + MainActivity.H
+//            //				+ bufferZone))) {
+//            if (!containsRect(new RectF(o.x - (int) (RetroEngine.W * bz), o.y - (int) (RetroEngine.H * bz),
+//                    o.x + (int) (RetroEngine.W * (1.0 + bz)), o.y + (int) (RetroEngine.H * (1.0 + bz))
+//            ))) {
+//                active = false;
+//                Log.v("EnemeyA", "Anemey entfernen zu weit entfernt->löschen");
+//            }
+//        }
     }
 
 //    @Override
