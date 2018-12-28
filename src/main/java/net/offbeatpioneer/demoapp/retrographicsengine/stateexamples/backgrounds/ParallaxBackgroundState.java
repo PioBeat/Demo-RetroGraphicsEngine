@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds;
+package net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;

@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined;
+package net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.splashscreenCombined;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -91,7 +91,7 @@ public class SplashScreenAnimationState extends State {
     @Override
     public void cleanUp() {
         clearSprites();
-        manager.clearStates();
+//        manager.clearStates();
     }
 
     @Override

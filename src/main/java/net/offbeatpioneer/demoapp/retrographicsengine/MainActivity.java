@@ -11,14 +11,13 @@ import android.view.animation.BounceInterpolator;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import net.offbeatpioneer.demoapp.R;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideScrollerState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined.SplashScreenExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures.SpriteQuadTreeExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds.ParallaxBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds.SideScrollerState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.ExplosionSpriteState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.RandomCirclesState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.TiledBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.sprites.BasicSpriteExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteQuadTreeExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.tutorials.TouchInteractionActivity;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
-            ab.setTitle(R.string.title_version);
+            ab.setTitle(getResources().getString(R.string.title_version, net.offbeatpioneer.retroengine.BuildConfig.VERSION_NAME));
         }
         handler = new Handler();
 
@@ -58,12 +57,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(new ScaleInAnimationAdapter(slideLeftAdapter));
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rge.offbeat-pioneer.net"));
-                startActivity(browserIntent);
-            }
+        fab.setOnClickListener(view -> {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://rge.offbeat-pioneer.net"));
+            startActivity(browserIntent);
         });
     }
 
@@ -72,29 +68,24 @@ public class MainActivity extends AppCompatActivity {
         List<SampleItem> dataset = new ArrayList<>();
         SampleItem.Builder builder = new SampleItem.Builder();
 
-        dataset.add(builder.create("This is the demo app for the <br/> <b>RetroGraphicsEngine</b>", R.color.card_colour_holo_green, new View.OnClickListener() {
-                    @Override
-                    public void onClick(final View view) {
-                    }
+        dataset.add(builder.create("This is the demo app for the <br/> <b>RetroGraphicsEngine</b>",
+                R.color.card_colour_holo_green, view -> {
                 })
         );
 
-        dataset.add(builder.create("Quadtree", R.color.card_colour_first, new View.OnClickListener() {
-                    @Override
-                    public void onClick(final View view) {
-                        createAnimation(view, duration);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Bundle b = new Bundle();
-                                b.putSerializable("currentState", SpriteQuadTreeExample.class);
-                                Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
-                                myIntent.putExtras(b);
-                                startActivityForResult(myIntent, 0);
-                            }
-                        }, duration);
+        dataset.add(builder.create("Quadtree", R.color.card_colour_first, view -> {
+                    createAnimation(view, duration);
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            Bundle b = new Bundle();
+                            b.putSerializable("currentState", SpriteQuadTreeExample.class);
+                            Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
+                            myIntent.putExtras(b);
+                            startActivityForResult(myIntent, 0);
+                        }
+                    }, duration);
 
-                    }
                 })
         );
 

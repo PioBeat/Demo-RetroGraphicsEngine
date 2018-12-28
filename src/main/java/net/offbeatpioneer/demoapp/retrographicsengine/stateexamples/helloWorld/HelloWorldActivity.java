@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.helloWorld;
+package net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.helloWorld;
 
 import android.app.Activity;
 import android.os.Bundle;

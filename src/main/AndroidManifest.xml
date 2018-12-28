@@ -31,8 +31,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".retrographicsengine.tutorials.TouchInteractionActivity" />
-        <activity android:name=".retrographicsengine.examples.splashscreenCombined.SplashScreenExample" />
-        <activity android:name=".retrographicsengine.examples.helloWorld.HelloWorldActivity" />
+        <activity android:name=".retrographicsengine.SplashScreenExample" />
+        <activity android:name=".retrographicsengine.stateexamples.helloWorld.HelloWorldActivity" />
         <activity
             android:name=".retrographicsengine.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

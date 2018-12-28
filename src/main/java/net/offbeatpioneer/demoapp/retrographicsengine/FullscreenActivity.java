@@ -4,15 +4,16 @@ import android.os.Bundle;
 import android.util.Log;
 
 import net.offbeatpioneer.demoapp.R;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.ParallaxBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideScrollerState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures.SpriteGridGroupExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures.SpriteQuadTreeExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds.ParallaxBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds.SideScrollerState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.ExplosionSpriteState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.RandomCirclesState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.TiledBackgroundState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteGridGroupExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.sprites.BasicSpriteExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteQuadTreeExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
+import net.offbeatpioneer.retroengine.core.StateManager;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
 import net.offbeatpioneer.retroengine.view.TouchListener;
@@ -34,10 +35,14 @@ public class FullscreenActivity extends AppCompatActivity {
 
         RetroEngine.init(this);
         ResManager.initImages(getResources());
+        StateManager.getInstance().clearStates();
+
         drawView = findViewById(R.id.graphics);
         renderThread = new RenderThread(drawView); //, Thread.MAX_PRIORITY);
-        renderThread.addStates(new BasicSpriteExample(), new SideScrollerState(),
-                new ParallaxBackgroundState(), new RandomCirclesState(),
+        renderThread.addStates(
+                new BasicSpriteExample(),
+                new SideScrollerState(), new ParallaxBackgroundState(),
+                new RandomCirclesState(),
                 new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample(), new SpriteGridGroupExample());
 
         Class<?> tmp = BasicSpriteExample.class;

@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures;
+package net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -59,9 +59,10 @@ public class SpriteQuadTreeExample extends State {
     public AbstractSprite createRunningGrant(PointF pos) {
         Debris debri = new Debris();
         PointF p = getViewportOrigin();
-        debri.initAsAnimation(ResManager.RUNNUNG_GRANT, 79, 42, 20, 12, p, true);
+        pos.offset(p.x, p.y);
+        debri.initAsAnimation(ResManager.RUNNUNG_GRANT, 79, 42, 20, 12, pos, true);
         debri.setViewportOrigin(p);
-        debri.setPosition(pos);
+//        debri.setPosition(pos);
         return debri;
     }
 

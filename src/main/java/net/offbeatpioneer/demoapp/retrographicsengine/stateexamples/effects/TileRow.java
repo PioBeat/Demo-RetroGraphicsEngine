@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.effects;
+package net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
