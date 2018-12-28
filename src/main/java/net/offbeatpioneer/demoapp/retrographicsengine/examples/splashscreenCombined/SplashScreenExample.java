@@ -24,13 +24,13 @@ public class SplashScreenExample extends AppCompatActivity {
 
         ResManager.initImages(getResources());
 
-        DrawView drawView = (DrawView) findViewById(R.id.graphics);
+        DrawView drawView = findViewById(R.id.graphics);
         renderThread = new RenderThread(drawView);
         renderThread.addStates(new SplashScreenAnimationState());
         renderThread.setCurrentState(SplashScreenAnimationState.class);
 
         Animation scaleAlpha = AnimationUtils.loadAnimation(this, R.anim.scalealpha);
-        ImageView circle1 = (ImageView) findViewById(R.id.image_circle_1);
+        ImageView circle1 = findViewById(R.id.image_circle_1);
         circle1.startAnimation(scaleAlpha);
     }
 
