@@ -1,9 +1,6 @@
 package net.offbeatpioneer.demoapp.retrographicsengine;
 
 import android.os.Build;
-import android.support.v4.view.ViewCompat;
-import android.support.v4.view.ViewPropertyAnimatorListener;
-import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -17,6 +14,8 @@ import net.offbeatpioneer.demoapp.R;
 
 import java.util.List;
 
+import androidx.core.view.ViewCompat;
+import androidx.recyclerview.widget.RecyclerView;
 import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
 
 /**
@@ -24,7 +23,7 @@ import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder;
  * @since 05.04.2017
  */
 
-public class SampleListAdapter extends android.support.v7.widget.RecyclerView.Adapter<SampleListAdapter.ViewHolder> {
+public class SampleListAdapter extends RecyclerView.Adapter<SampleListAdapter.ViewHolder> {
 
     private class VIEW_TYPES {
         public static final int Header = 1;
@@ -118,18 +117,18 @@ public class SampleListAdapter extends android.support.v7.widget.RecyclerView.Ad
         }
 
         @Override
-        public void preAnimateAddImpl(RecyclerView.ViewHolder holder) {
+        public void preAnimateAddImpl(androidx.recyclerview.widget.RecyclerView.ViewHolder holder) {
             ViewCompat.setTranslationY(itemView, -itemView.getHeight() * 0.3f);
             ViewCompat.setAlpha(itemView, 0);
         }
 
         @Override
-        public void preAnimateRemoveImpl(RecyclerView.ViewHolder holder) {
+        public void preAnimateRemoveImpl(androidx.recyclerview.widget.RecyclerView.ViewHolder holder) {
 
         }
 
         @Override
-        public void animateAddImpl(RecyclerView.ViewHolder holder, ViewPropertyAnimatorListener listener) {
+        public void animateAddImpl(androidx.recyclerview.widget.RecyclerView.ViewHolder holder, androidx.core.view.ViewPropertyAnimatorListener listener) {
             ViewCompat.animate(itemView)
                     .translationY(0)
                     .alpha(1)
@@ -139,7 +138,7 @@ public class SampleListAdapter extends android.support.v7.widget.RecyclerView.Ad
         }
 
         @Override
-        public void animateRemoveImpl(RecyclerView.ViewHolder holder, ViewPropertyAnimatorListener listener) {
+        public void animateRemoveImpl(androidx.recyclerview.widget.RecyclerView.ViewHolder holder, androidx.core.view.ViewPropertyAnimatorListener listener) {
             ViewCompat.animate(itemView)
                     .translationY(-itemView.getHeight() * 0.3f)
                     .alpha(0)

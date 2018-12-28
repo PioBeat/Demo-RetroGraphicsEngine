@@ -1,7 +1,6 @@
 package net.offbeatpioneer.demoapp.retrographicsengine.examples.splashscreenCombined;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -11,6 +10,8 @@ import net.offbeatpioneer.demoapp.retrographicsengine.ResManager;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashScreenExample extends AppCompatActivity {
 

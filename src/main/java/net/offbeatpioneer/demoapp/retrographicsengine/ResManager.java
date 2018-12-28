@@ -22,7 +22,7 @@ public class ResManager {
     public static Bitmap BULLET;
 
     public static Bitmap BACKGROUND_STAR_2;
-    public static Bitmap BACKGROUND_STAR_3;
+    public static Bitmap BACKGROUND_STARS_3;
 
     public static Bitmap COMPASS;
 
@@ -102,7 +102,7 @@ public class ResManager {
                 R.drawable.fighter3, opts);
 
         BACKGROUND_STAR_2 = BitmapFactory.decodeResource(res, R.drawable.star1);
-        BACKGROUND_STAR_3 = BitmapFactory.decodeResource(res, R.drawable.bghighscore);
+        BACKGROUND_STARS_3 = BitmapFactory.decodeResource(res, R.drawable.background_stars_3);
         BG_LEVEL_1 = BitmapFactory.decodeResource(res, R.drawable.level1);
         BG_LEVEL_1_COLMAP = BitmapFactory.decodeResource(res, R.drawable.level1_colmap);
 

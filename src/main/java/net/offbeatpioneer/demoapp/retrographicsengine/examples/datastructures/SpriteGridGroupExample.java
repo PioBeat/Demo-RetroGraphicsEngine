@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.grid;
+package net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures;
 
 import android.graphics.Canvas;
 import android.graphics.Color;

@@ -1,11 +1,12 @@
 package net.offbeatpioneer.demoapp.retrographicsengine.tutorials;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class TouchInteractionActivity extends AppCompatActivity {
 

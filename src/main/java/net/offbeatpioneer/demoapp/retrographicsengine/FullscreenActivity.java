@@ -1,6 +1,5 @@
 package net.offbeatpioneer.demoapp.retrographicsengine;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -10,13 +9,15 @@ import net.offbeatpioneer.demoapp.retrographicsengine.examples.backgrounds.SideS
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.grid.SpriteGridGroupExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures.SpriteGridGroupExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.BasicSpriteExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites.SpriteQuadTreeExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures.SpriteQuadTreeExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
 import net.offbeatpioneer.retroengine.view.TouchListener;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class FullscreenActivity extends AppCompatActivity {

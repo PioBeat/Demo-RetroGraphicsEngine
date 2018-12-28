@@ -1,4 +1,4 @@
-package net.offbeatpioneer.demoapp.retrographicsengine.examples.sprites;
+package net.offbeatpioneer.demoapp.retrographicsengine.examples.datastructures;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -21,27 +21,30 @@ import net.offbeatpioneer.retroengine.core.states.State;
 /**
  * Example on how to use the {@link SpriteQuadtreeGroup} in a {@link State}.
  * <p>
- * Some animated sprites will be drawn horizontally filling the whole width of the screen.
- * The query range (search rectangle) for the quadtree of the sprite group is always renewed
- * by touching the screen. A predefined rectangle at the pointed position on the screen will be drawn
- * which serves also as the query range for the quadtree.
- * This demonstrates how the quadtree sprite group is working. Although many sprites are created only
+ * Some animated sprites will be drawn randomly on the screen. To make them visible a query is executed
+ * by touching the screen. A query (search rectangle) defines the area of the screen representing coordinates for the quad tree.
+ * A yellow-colored rectangle at the position on the screen will be drawn which represents the query range for the quad tree.
+ * The query range for the quad tree of the sprite group is always renewed by touching the screen.
+ * <p>
+ * This demonstrates how the sprite group <i>quad tree</i> is working. Although many sprites are created only
  * a fraction is actually drawn - specifically only the ones which fall in the search rectangle.
+ * This can be used to speed up collisions checks.
  *
  * @author Dominik Grzelak
  * @since 04.05.2017
  */
 public class SpriteQuadTreeExample extends State {
-    private RectF queryRange = new RectF();
-    Paint p = new Paint();
+    private RectF userQuery = new RectF();
+    private Paint p = new Paint();
 
     public SpriteQuadTreeExample() {
+        // replace the preset root node from type SpriteListGroup with a quad tree
         super(new SpriteQuadtreeGroup());
     }
 
     @Override
     public void init() {
-        StaticBackgroundLayer bg = new StaticBackgroundLayer(ResManager.BACKGROUND_STAR_2, false);
+        StaticBackgroundLayer bg = new StaticBackgroundLayer(ResManager.BACKGROUND_STARS_3, false);
         addBackgroundLayer(bg);
 //        setReferenceSpriteOffsets(-RetroEngine.W / 2, -RetroEngine.H / 2);
         p.setColor(Color.YELLOW);
@@ -50,7 +53,6 @@ public class SpriteQuadTreeExample extends State {
         setQueryRange(0, 0);
         for (int i = 0; i < RetroEngine.W / 42; i++) {
             addSprite(createRunningGrant(new PointF(i * 42 + 10, 100)));
-
         }
     }
 
@@ -65,27 +67,23 @@ public class SpriteQuadTreeExample extends State {
 
     @Override
     public void updateLogic() {
-        setQueryRange(getRect());
+        setQueryRange(userQuery);
 
         updateSprites();
-    }
-
-    public RectF getRect() {
-        return queryRange;
     }
 
     public void setQueryRange(int startX, int startY) {
         PointF o = getViewportOrigin();
 //        startX /= 2;
         startY /= 2;
-        this.queryRange.set(o.x + startX, o.y + startY, o.x + startX + 200, o.y + startY + 200);
+        this.userQuery.set(o.x + startX, o.y + startY, o.x + startX + 200, o.y + startY + 200);
     }
 
     @Override
     public void render(Canvas canvas, Paint paint, long currentTime) {
         drawBackground(canvas);
 
-        canvas.drawRect(getRect(), p);
+        canvas.drawRect(userQuery, p);
 
         drawSprites(canvas, currentTime);
     }
