@@ -45,6 +45,7 @@ public class SideScrollerState extends State {
     private FixedScrollableLayer bgLayer;
     private boolean addExplosion = false;
     Bitmap bgLevel1Colmap;
+
     public SideScrollerState() {
         super();
         setStateName("SideScrollerState");
@@ -117,8 +118,10 @@ public class SideScrollerState extends State {
 
     @Override
     public void cleanUp() {
-        this.backgroundLayer.recycle();
-        this.bgLayer.recycle();
+        if (this.backgroundLayer != null)
+            this.backgroundLayer.recycle();
+        if (this.bgLayer != null)
+            this.bgLayer.recycle();
     }
 
     @Override

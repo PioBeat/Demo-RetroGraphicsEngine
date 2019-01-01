@@ -106,8 +106,10 @@ public class ParallaxBackgroundState extends State {
 
     @Override
     public void cleanUp() {
-        bgLayer.recycle();
-        backgroundLayer.recycle();
+        if (bgLayer != null)
+            bgLayer.recycle();
+        if (backgroundLayer != null)
+            backgroundLayer.recycle();
     }
 
     @Override

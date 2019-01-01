@@ -5,7 +5,7 @@ import android.graphics.PointF;
 
 import net.offbeatpioneer.demoapp.retrographicsengine.ResManager;
 import net.offbeatpioneer.retroengine.core.GameFont;
-import net.offbeatpioneer.retroengine.core.eventhandling.EmptyAction;
+import net.offbeatpioneer.retroengine.core.sprites.eventhandling.EmptyAction;
 import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
 import net.offbeatpioneer.retroengine.core.sprites.EmptySprite;
