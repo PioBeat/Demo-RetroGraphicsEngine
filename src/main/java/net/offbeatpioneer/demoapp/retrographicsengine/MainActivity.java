@@ -129,24 +129,24 @@ public class MainActivity extends AppCompatActivity {
 //                })
 //        );
 
-        dataset.add(builder.create("Explosion sprite with text", R.color.card_colour_fifth, new View.OnClickListener() {
-                    @Override
-                    public void onClick(final View view) {
-                        createAnimation(view, duration);
-                        handler.postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                Bundle b = new Bundle();
-                                b.putSerializable("currentState", ExplosionSpriteState.class);
-                                Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
-                                myIntent.putExtras(b);
-                                startActivityForResult(myIntent, 0);
-                            }
-                        }, duration);
-
-                    }
-                })
-        );
+//        dataset.add(builder.create("Explosion sprite with text", R.color.card_colour_fifth, new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(final View view) {
+//                        createAnimation(view, duration);
+//                        handler.postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                Bundle b = new Bundle();
+//                                b.putSerializable("currentState", ExplosionSpriteState.class);
+//                                Intent myIntent = new Intent(view.getContext(), FullscreenActivity.class);
+//                                myIntent.putExtras(b);
+//                                startActivityForResult(myIntent, 0);
+//                            }
+//                        }, duration);
+//
+//                    }
+//                })
+//        );
 
         dataset.add(builder.create("Moving tiled background", R.color.card_colour_third, new View.OnClickListener() {
                     @Override

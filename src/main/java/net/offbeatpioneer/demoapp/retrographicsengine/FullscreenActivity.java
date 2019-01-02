@@ -6,18 +6,16 @@ import android.util.Log;
 import net.offbeatpioneer.demoapp.R;
 import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds.ParallaxBackgroundState;
 import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.backgrounds.SideScrollerState;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteGridGroupExample;
+import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteQuadTreeExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.ExplosionSpriteState;
 import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.RandomCirclesState;
 import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.effects.TiledBackgroundState;
-import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteGridGroupExample;
 import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.sprites.BasicSpriteExample;
-import net.offbeatpioneer.demoapp.retrographicsengine.stateexamples.datastructures.SpriteQuadTreeExample;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
-import net.offbeatpioneer.retroengine.core.StateManager;
 import net.offbeatpioneer.retroengine.core.states.State;
 import net.offbeatpioneer.retroengine.view.DrawView;
 import net.offbeatpioneer.retroengine.view.RenderThread;
-import net.offbeatpioneer.retroengine.view.TouchListener;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,11 +37,12 @@ public class FullscreenActivity extends AppCompatActivity {
 
         drawView = findViewById(R.id.graphics);
         renderThread = new RenderThread(drawView); //, Thread.MAX_PRIORITY);
+
         renderThread.addStates(
                 new BasicSpriteExample(),
                 new SideScrollerState(), new ParallaxBackgroundState(),
                 new RandomCirclesState(),
-                new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample(), new SpriteGridGroupExample());
+                new ExplosionSpriteState(), new TiledBackgroundState(), new SpriteQuadTreeExample().setInitAsync(true), new SpriteGridGroupExample());
 
         Class<? extends net.offbeatpioneer.retroengine.core.states.State> tmp = BasicSpriteExample.class;
         Bundle b = getIntent().getExtras();
@@ -51,7 +50,7 @@ public class FullscreenActivity extends AppCompatActivity {
             // Hole aktuelle Gamestate, falls vorhanden
             Class<? extends net.offbeatpioneer.retroengine.core.states.State> tmp2 = (Class<? extends State>) b.get("currentState");
             if (tmp2 != null) {
-                Log.v("MainActivity", "Load transfered State: " + tmp2.getClass());
+                Log.v("MainActivity", "Load transferred State: " + tmp2.getClass());
                 tmp = tmp2;
             }
         }
