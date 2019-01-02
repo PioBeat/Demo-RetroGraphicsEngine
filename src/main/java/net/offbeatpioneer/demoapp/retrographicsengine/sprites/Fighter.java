@@ -62,7 +62,7 @@ public class Fighter extends AnimatedSprite implements IObstacleSprite {
     }
 
     @Override
-    public void updateLogicHook() {
+    public void preUpdateHook() {
         if (RetroEngine.getTickCount() > starttime + 100) {
             starttime = RetroEngine.getTickCount();
             angleOffset = this.animPath[pathCnt];

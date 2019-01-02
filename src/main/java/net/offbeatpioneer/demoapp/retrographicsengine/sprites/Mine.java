@@ -31,7 +31,7 @@ public class Mine extends AnimatedSprite implements IObstacleSprite {
     }
 
     @Override
-    public void updateLogicHook() {
+    public void preUpdateHook() {
         setPosition(new PointF(position.x + 10, position.y + 20));
     }
 

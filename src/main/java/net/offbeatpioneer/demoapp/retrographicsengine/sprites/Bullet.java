@@ -24,7 +24,7 @@ public class Bullet extends AnimatedSprite {
     public long counter = 0;
 
     @Override
-    public void updateLogicHook() {
+    public void preUpdateHook() {
         if (speed.x == 0 && speed.y == 0)
             active = false;
 

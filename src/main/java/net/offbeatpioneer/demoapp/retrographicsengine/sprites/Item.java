@@ -24,7 +24,7 @@ public class Item extends AnimatedSprite {
     }
 
     @Override
-    public void updateLogicHook() {
+    public void preUpdateHook() {
 //        if (autoDestroy) {
 //            PointF o = getViewportOrigin();
 //            int bz = getBufferZone();

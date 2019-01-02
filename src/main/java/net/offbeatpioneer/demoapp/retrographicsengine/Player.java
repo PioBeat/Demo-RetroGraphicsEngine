@@ -69,7 +69,7 @@ public class Player extends AnimatedSprite {
 	}
 
     @Override
-    public void updateLogicHook() {
+    public void preUpdateHook() {
         if (TOUCH_ACTION) {
 
             if (moveLeft) {
