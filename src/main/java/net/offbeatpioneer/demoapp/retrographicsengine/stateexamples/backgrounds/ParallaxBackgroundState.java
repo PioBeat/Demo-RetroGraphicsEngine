@@ -56,7 +56,7 @@ public class ParallaxBackgroundState extends State {
         sprite.setViewportOrigin(getViewportOrigin());
         sprite.setAutoDestroy(false);
         sprite.setActive(true);
-        sprite.setDisabled(false);
+        sprite.setHidden(false);
 
         addSprite(player);
 

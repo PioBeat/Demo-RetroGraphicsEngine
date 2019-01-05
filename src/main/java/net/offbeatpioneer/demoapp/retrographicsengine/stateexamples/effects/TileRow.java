@@ -34,7 +34,7 @@ public class TileRow extends SpriteListGroup {
         this.widthScreen = widthScreen;
         this.heightScreen = heightScreen;
         this.position = position;
-        setDisabled(false);
+        setHidden(false);
         setAutoDestroy(false);
         setActive(true);
     }

@@ -96,8 +96,8 @@ public class SideScrollerState extends State {
             AnimatedSprite s2 = ExplosionCreator.getRandomExplosion(posEx2);
             addSprite(s);
             addSprite(s2);
-            s.setDisabled(false);
-            s2.setDisabled(false);
+            s.setHidden(false);
+            s2.setHidden(false);
         }
 
         updateSprites();

@@ -61,7 +61,7 @@ public class ExplosionCreator {
                 64,
                 64,
                 50, 12, position, false);
-		explosion.setDisabled(true);
+		explosion.setHidden(true);
         return explosion;
     }
 

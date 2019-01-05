@@ -17,7 +17,7 @@ public class TileMatrix extends SpriteListGroup {
     public TileMatrix(int widthScreen, int heightScreen) {
         this.widthScreen = widthScreen;
         this.heightScreen = heightScreen;
-        setDisabled(true);
+        setHidden(true);
         setActive(true);
         setPosition(new PointF(0, 0));
     }
