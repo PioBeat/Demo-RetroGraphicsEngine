@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 })
         );
 
-        dataset.add(builder.create("Quadtree", R.color.card_colour_first, view -> {
+        dataset.add(builder.create("Quad tree (data structure)", R.color.card_colour_first, view -> {
                     createAnimation(view, duration);
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 //                })
 //        );
 
-        dataset.add(builder.create("Moving tiled background", R.color.card_colour_third, new View.OnClickListener() {
+        dataset.add(builder.create("Animated tile background", R.color.card_colour_third, new View.OnClickListener() {
                     @Override
                     public void onClick(final View view) {
                         createAnimation(view, duration);
