@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 /**
  * @author Dominik Grzelak
@@ -41,6 +42,11 @@ public class BlueScreenState extends State {
 
     @Override
     public boolean onTouchEvent(View v, MotionEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }

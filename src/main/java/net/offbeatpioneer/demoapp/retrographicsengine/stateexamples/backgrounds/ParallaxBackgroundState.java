@@ -19,6 +19,7 @@ import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
 import net.offbeatpioneer.retroengine.core.sprites.SpriteListGroup;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 /**
  * Example showing how to create a parallax background with a sprite as an actor (player)
@@ -134,6 +135,11 @@ public class ParallaxBackgroundState extends State {
         }
         player.setTouch(motionEvent.getX(), motionEvent.getY());
         player.TOUCH_ACTION = touchAction;
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 

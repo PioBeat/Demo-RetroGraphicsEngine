@@ -31,6 +31,7 @@ import net.offbeatpioneer.retroengine.core.sprites.simple.TriangleSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
 import net.offbeatpioneer.retroengine.core.util.BitmapHelper;
 import net.offbeatpioneer.retroengine.core.util.MathUtils;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 //TODO add action events for some sprite and display toast
 
@@ -238,6 +239,11 @@ public class BasicSpriteExample extends State {
 //        PointF np = new PointF(p.x + 10, p.y);
 //        player.setPosition(p);
         return true;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
+        return false;
     }
 
 

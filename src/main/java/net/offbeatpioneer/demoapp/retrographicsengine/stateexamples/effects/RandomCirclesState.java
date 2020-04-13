@@ -18,6 +18,7 @@ import net.offbeatpioneer.retroengine.core.animation.ScaleAnimation;
 import net.offbeatpioneer.retroengine.core.sprites.simple.CircleSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
 import net.offbeatpioneer.retroengine.core.util.MathUtils;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 /**
  * Example shows the creation of circles. In addition animations are applied
@@ -139,6 +140,11 @@ public class RandomCirclesState extends State {
 
     @Override
     public boolean onTouchEvent(View v, MotionEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }

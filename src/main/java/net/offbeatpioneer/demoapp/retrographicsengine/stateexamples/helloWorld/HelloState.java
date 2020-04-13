@@ -10,6 +10,7 @@ import android.view.View;
 
 import net.offbeatpioneer.retroengine.core.sprites.decorator.TextElement;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 public class HelloState extends State {
 
@@ -44,6 +45,11 @@ public class HelloState extends State {
 
     @Override
     public boolean onTouchEvent(View v, MotionEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }

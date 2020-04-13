@@ -17,6 +17,7 @@ import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
 import net.offbeatpioneer.retroengine.core.sprites.SpriteQuadtreeGroup;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 /**
  * Example on how to use the {@link SpriteQuadtreeGroup} in a {@link State}.
@@ -105,6 +106,11 @@ public class SpriteQuadTreeExample extends State {
             Log.d("TouchTest", "Touch up");
             setQueryRange((int) event.getX(), (int) event.getY());
         }
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }

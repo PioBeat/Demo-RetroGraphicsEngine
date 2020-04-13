@@ -21,6 +21,7 @@ import net.offbeatpioneer.retroengine.auxiliary.background.ParallaxLayer;
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 import static net.offbeatpioneer.retroengine.core.util.BitmapHelper.scaleToFit;
 import static net.offbeatpioneer.retroengine.core.util.ColorTools.closeMatch;
@@ -174,6 +175,11 @@ public class SideScrollerState extends State {
 
 
         return true;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
+        return false;
     }
 
 

@@ -15,6 +15,7 @@ import net.offbeatpioneer.retroengine.auxiliary.background.StaticBackgroundLayer
 import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.sprites.AbstractSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 /**
  * Work In Progress
@@ -96,6 +97,11 @@ public class SpriteGridGroupExample extends State {
 //            Log.d("TouchTest", "Touch up");
 //            setQueryRange((int) event.getX(), (int) event.getY());
 //        }
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }

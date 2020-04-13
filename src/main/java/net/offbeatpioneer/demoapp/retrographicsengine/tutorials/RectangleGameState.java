@@ -20,6 +20,7 @@ import net.offbeatpioneer.retroengine.core.sprites.simple.RectangleSprite;
 import net.offbeatpioneer.retroengine.core.states.State;
 import net.offbeatpioneer.retroengine.core.util.ColorTools;
 import net.offbeatpioneer.retroengine.core.util.MathUtils;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 import java.util.Locale;
 
@@ -139,6 +140,11 @@ public class RectangleGameState extends State {
     public boolean onTouchEvent(View v, MotionEvent event) {
         x = event.getX();
         y = event.getY();
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }

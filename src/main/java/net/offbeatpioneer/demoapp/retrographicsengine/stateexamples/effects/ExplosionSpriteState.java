@@ -16,6 +16,7 @@ import net.offbeatpioneer.retroengine.core.RetroEngine;
 import net.offbeatpioneer.retroengine.core.sprites.AnimatedSprite;
 import net.offbeatpioneer.retroengine.core.sprites.decorator.TextElement;
 import net.offbeatpioneer.retroengine.core.states.State;
+import net.offbeatpioneer.retroengine.view.DefaultSwipeListener;
 
 /**
  * Example - Sprite with an explosion animation decorated with a text sprite.
@@ -72,6 +73,11 @@ public class ExplosionSpriteState extends State {
 
     @Override
     public boolean onTouchEvent(View v, MotionEvent event) {
+        return false;
+    }
+
+    @Override
+    public boolean onSwipeEvent(DefaultSwipeListener.Direction direction) {
         return false;
     }
 }
